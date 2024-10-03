@@ -35,7 +35,7 @@ def get_playlists(config: Config) -> Any:
 
 def sorted_playlist_items(playlist: Any) -> list[int]:
     playlist["MediaContainer"]["Metadata"].sort(
-        key=lambda x: x["title"][4:] if x["title"].lower().startswith("the ") else x["title"],
+        key=lambda x: x["originallyAvailableAt"]
     )
     return [item["playlistItemID"] for item in playlist["MediaContainer"]["Metadata"]]
 
